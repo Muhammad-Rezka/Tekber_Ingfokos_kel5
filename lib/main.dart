@@ -12,17 +12,6 @@ Future<void> main() async {
     publishableKey: dotenv.env['SUPABASE_ANON_KEY']!,
   );
 
-  // === TES KONEKSI (hapus kalau sudah) ===
-  try {
-    await supabase.from('tes_koneksi').select();
-    print('✅ TERHUBUNG');
-  } on PostgrestException catch (e) {
-    print('✅ TERHUBUNG ke Supabase (server membalas: ${e.message})');
-  } catch (e) {
-    print('❌ GAGAL KONEK: $e');
-  }
-  // ======================================
-
   runApp(const MainApp());
 }
 
